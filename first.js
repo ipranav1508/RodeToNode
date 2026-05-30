@@ -15,8 +15,18 @@ const PORT = 3000;
 // });
 
 // direct call
+// http.createServer((req, res) => {
+// console.log(req);
+// }).listen(3000, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`);
+// });
+
+
+// headers, method, url
 http.createServer((req, res) => {
-console.log(req);
+console.log(req.url, req.method, req.headers);
+// process.exit(); // to stop the server after one request for demonstration
 }).listen(3000, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
