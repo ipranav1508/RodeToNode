@@ -1,8 +1,6 @@
-// response passing to server
-const http = require('http');
-const PORT = 3000;
+// request handler to send to server response
 
-let response = http.createServer((req, res)=>{
+const requestHandler = (req, res)=>{
    res.setHeader('Content-Type', 'text/html');
 
    // url routing based response
@@ -26,11 +24,7 @@ let response = http.createServer((req, res)=>{
    }
 
   //  console.log(req);  //  process.exit(); // to stop the server
-});
-
-response.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+};
 
 // code to take input from user and send response
 function userInput(res){
@@ -65,9 +59,7 @@ function responsefromUser(req, res){
             
             return res.end();
         });
-    } else {
-        res.writeHead(404, {'Content-Type': 'text/html'});
-        res.write('<html><body><h1>404 Not Found</h1></body></html>');
-        res.end();
     }
 }
+
+module.exports = requestHandler; // export the request handler function
