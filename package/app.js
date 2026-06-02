@@ -1,10 +1,30 @@
-const http = require('http');
-const server = http.createServer((req, res) => {
-  console.log(`Received request: ${req.method} ${req.url}`);
+// core module
+// const http = require('http');
+
+// external module
+const express = require('express');
+
+// local module
+const requestHandler = require('./user');
+
+const app = express();
+app.use("/", (req, res, next) => {
+  console.log('Middleware 1', req.method, req.url);
+  next();
 });
 
+app.use("/submit", (req, res, next) => {
+  console.log('Middleware 2', req.method, req.url);
+  res.send('<p>Hello from Middleware 2</p>');
+});
+
+// const server = http.createServer(app);
+
 const PORT = 3000;
-server.listen(PORT, () => {
+// server.listen(PORT, () => {
+//   console.log(`Server is running on http://localhost:${PORT}`);
+// });
+app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
 
