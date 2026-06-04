@@ -1,4 +1,6 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
 const PORT = 3000;
 
@@ -32,9 +34,15 @@ app.get('/contact', (req, res, next) => {
     </form>
     `);
 });
+app.post('/contact', (req, res, next) => {
+  console.log('POST /contact first handler',req.url, req.method, req.body);
+  next();
+});
+
+app.use(bodyParser.urlencoded());
 
 app.post('/contact', (req, res, next) => {
-  console.log('POST /contact handler');
+  console.log('POST /contact handler', req.body);
   res.send('<p>Thank you for contacting us!</p>');
 });
 
