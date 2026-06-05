@@ -1,0 +1,13 @@
+<!-- <%- include('partials/head', { title: 'AirBnb Home' }) %> -->
+ <%- include('partials/head') %>
+</head>
+<body class="flex flex-col items-center mt-12">
+ <h1 class="text-3xl font-bold text-red-500 text-center mt-12">Welcome to Airbnb</h1> 
+  <a href="/host/add-home" class="block text-center mt-5 text-lg text-red-500 no-underline">Add Home</a>
+  <p class="text-lg text-gray-700 mt-4">Registered Homes:</p>
+  <ul class="list-disc list-inside">
+    <% registeredHomes.forEach(home => { %>
+      <li class="text-lg text-gray-700"><%= home.housename %></li>
+    <% }) %>
+</body>
+</html>
