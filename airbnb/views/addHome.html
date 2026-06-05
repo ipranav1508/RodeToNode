@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Your Home</title>
+  <link rel="stylesheet" href="/css/output.css">
 </head>
-<body>
-  <h1>Add Your Home</h1>
-  <form action="/host/add-home" method="POST">
-    <input type="text" name="name" placeholder="Home Name">
-    <input type="submit"/>
+<body class="flex flex-col items-center mt-12">
+  <h1 class="text-3xl font-bold text-center">Add Your Home</h1>
+  <form action="/host/add-home" method="POST" class="flex flex-col items-center mt-5">
+    <input class="border border-gray-300 rounded py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500" type="text" name="name" placeholder="Home Name">
+    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit" value="Add Home"/>
   </form>
 </body>
 </html>

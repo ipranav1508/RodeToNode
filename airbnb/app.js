@@ -7,9 +7,11 @@ const appRoot = require('./utils/pathUtils');
 
 const app = express();
 
+app.use(express.static(path.join(appRoot, 'public')));
 app.use(express.urlencoded());
 app.use( userRouter);
 app.use('/host', hostRouter);
+
 
 app.use((req, res, next) => {
   res.status(404).sendFile(path.join(appRoot, 'views', '404.html'));
